@@ -97,4 +97,34 @@ hr
 {
 	color: #333366;
 }
-
+.AboutPicture1
+{
+    width: 400px;
+    height: 150px;
+}
+.AboutPicture2
+{
+    height: 200px;
+    width: 400px;
+}
+.AboutPicture3
+{
+    height: 200px;
+    width: 400px;
+}
+.pictureCenter
+{
+	text-align: center;
+}
+.redline
+{
+	text-indent: 25px;
+}
+.headerStyle
+{
+	font-size: 120%;
+	text-indent: 70px;
+	font-family: Open Sans Condensed, Calibri;
+	font-weight: 600;
+	color: #000
+}
