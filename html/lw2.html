@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			Пример работы
+		</title> 
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Monoton|Open+Sans+Condensed:300|Rubik+Mono+One" rel="stylesheet">  	
+		<script src="https://use.fontawesome.com/9982889cba.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1 class="siteHeader"> 
+			AggreGate
+			</h1>
+			<div class="main-menu">
+				<ul class="main-ul">
+					<li class="main-li"><a href="main.html"><i class="fa fa-microchip" aria-hidden="true"></i>Что такое SCADA</a></li>
+					<li class="main-li"><a href="about.html"><i class="fa fa-cube" aria-hidden="true"></i>SCADA AggreGate</a></li>
+					<li class="main-li"><a href="lw.html"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Лабораторная работа</a></li>
+				</ul>
+			</div>
+		</header>
+		<hr>
+		<article class="siteText">
+		<div class="navigate-menu">
+				<ul class="navigate-ul">
+					<li class="navigate-li"><a href="lw.html" ></i>Начало</a></li>
+					<li class="navigate-li"><a href="lw1.html"></i>Знакомство</a></li>
+					<li class="navigate-li"><a href="lw2.html" class="chosenColor"></i>Пример работы</a></li>
+					<li class="navigate-li"><a href="lw3.html"></i>Заключение</a></li>
+				</ul>
+			</div>
+		<blockquote>
+		<p class="redline">
+			<h2>Пример задачи </h2>
+			<p>Задача: Сделать систему регулирования расхода воздуха. Имеется дозатор (исполнительный механизм), двигатель (в нашем случае шаговый), датчик положения и датчик расхода. Так же имеется задающий (командный) сигнал.</p>
+			<br>
+		<p class="pictureCenter">
+			<img class="missionPicture" src="images/lw/3.png" alt="">
+			<br>
+			Рисунок 1. Структурная схема
+		</p>
+		<br>
+		<h2>Создание HMI </h2>
+			<p>Во вкладке “Администрирование” добавляем HMI в “Виджеты” (Рисунок 2).</p>
+			<br>
+		<p class="pictureCenter">
+			<img class="screenPicture" src="images/lw/4.png" alt="">
+			<br>
+			Рисунок 2
+			<br>
+			<p>Далее мы видим знакомую нам (из других SCADA) форму редактирования компонентов рабочего интерфейса (Рисунок 3).</p>
+			<br>
+		<p class="pictureCenter">
+			<img class="screenPicture" src="images/lw/5.png" alt="">
+			<br>
+			Рисунок 3
+		</p>
+		<br>
+			<p>Нам понадобятся следующие компоненты:<br>
+		-	2 датчика (выбрал для них 2 счетчика – индикатора);<br>
+		-	Двигатель (нарисовал прямоугольник и добавил заполняющуюся шкалу для наглядности);<br>
+		-	Регулятор положения (командный сигнал). Использовал шкалу с регулятором;<br>
+		-	Дозатор (выбрал шкалу для удобства слежения  за текущим расходом) ; <br>
+		Добавляем все компоненты перетаскиванием. Можно еще добавить готовые изображения компонентов с каталога в папке программы AggreGate\images.
+		</p>
+			<br>
+		<p class="pictureCenter">
+			<img class="screenPicture" src="images/lw/6.png" alt="">
+			<br>
+			Рисунок 4
+		</p>
+		<br>
+		<p>Далее привязываем компоненты между собой. Для этого есть вкладка “Привязки” на панели “Свойства” справа. В AggreGate HMI основная логическая цепь редактируется с помощью привязок.
+		</p>
+		<br>
+		<p class="pictureCenter">
+			<img class="smallPicture" src="images/lw/7.png" alt="">
+			<br>
+			Рисунок 5
+		</p>
+		<br>
+		<p>Во вкладке “Привязки” жмем добавить привязку и видим такую картину (Риснуок 5). <br>
+		Во все пункты можно зайти и прочитать комментарии разработчика для понимания как пользоваться этим инструментом.<br>
+		В нашем случае понадобится выстроить связь между приборами как на рисунке 1. Так как у нас простейшая система работающая в реальном времени мне понадобилось лишь настроить периодическую запись и преобразование значений в привязках.<br>
+		</p>
+		<br>
+		<p class="pictureCenter">
+			<img class="screenPicture" src="images/lw/8.png" alt="">
+			<br>
+			Рисунок 6. Редактор выражений
+		</p>
+		<p>В редакторе выражений добавляем значение наших компонентов, чтобы они могли динамически меняться в зависимости от времени (условие динамики задаются в окне привязок).
+		</p>
+		<br>
+		<p class="pictureCenter">
+			<img class="smallPicture" src="images/lw/9.png" alt="">
+			<br>
+			Рисунок 7
+		</p>
+		<p>Выставляем галочку в выборе обработчика событий “Периодически”. Можно еще настроить частоту периода. В нашем случае она равняется 1с.
+		Аналогичным образом делаем связь между всеми элементами в соответствии рисунку 1.
+		</p>
+		<br>
+		<p>В итоге у нас получилась динамическая система регулирования воздухом! (Рисунок 8)
+		</p>
+		<p class="pictureCenter">
+			<img class="screenPicture" src="images/lw/10.png" alt="">
+			<br>
+			Рисунок 8
+		</p>
+		</blockquote>
+		</article>
+		<footer class="siteFooter">
+		<p>
+			&copy trofman 2017<br>
+			Трофимов Василий<br>
+			УрФУ, НМТМ-260702<br>
+		</p>
+		</footer>
+	</body>
+</html>
